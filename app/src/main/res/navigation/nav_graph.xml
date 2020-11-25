@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="uz.pop.shoestoreinventory.fragments.ListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_list">
+
+        <action
+            android:id="@+id/action_to_details_fragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="uz.pop.shoestoreinventory.fragments.DetailFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_details">
+
+        <action
+            android:id="@+id/action_detailsFragment_to_listFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="uz.pop.shoestoreinventory.fragments.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_to_welcome"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="uz.pop.shoestoreinventory.fragments.WelcomeFragment"
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_to_insructions"
+            app:destination="@id/fragmentInstructions"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentInstructions"
+        android:name="uz.pop.shoestoreinventory.fragments.FragmentInstructions"
+        android:label="FragmentInstructions"
+        tools:layout="@layout/fragment_instructions">
+        <action
+            android:id="@+id/action_to_list_fragment"
+            app:destination="@id/FirstFragment"
+            app:popUpTo="@id/fragmentInstructions"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
