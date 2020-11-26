@@ -5,16 +5,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_top_16dp">
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/margin_top_16dp"
+            android:layout_marginTop="@dimen/margin_login_24"
+            android:layout_marginEnd="@dimen/margin_top_16dp"
             tools:text="Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,8 +27,10 @@
             android:id="@+id/tv_company"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
             tools:text="Company"
+            style="@style/text_item"
+            android:linksClickable="true"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
@@ -34,8 +39,9 @@
             android:id="@+id/tv_size"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
             tools:text="Size"
+            style="@style/text_item"
             app:layout_constraintEnd_toEndOf="@+id/tv_company"
             app:layout_constraintStart_toStartOf="@+id/tv_company"
             app:layout_constraintTop_toBottomOf="@+id/tv_company" />
@@ -44,8 +50,9 @@
             android:id="@+id/tv_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/margin_8dp"
             tools:text="Description"
+            style="@style/text_item"
             app:layout_constraintEnd_toEndOf="@+id/tv_size"
             app:layout_constraintStart_toStartOf="@+id/tv_size"
             app:layout_constraintTop_toBottomOf="@+id/tv_size" />

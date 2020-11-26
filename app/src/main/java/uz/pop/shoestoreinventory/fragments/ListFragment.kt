@@ -2,11 +2,10 @@ package uz.pop.shoestoreinventory.fragments
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-
 import uz.pop.shoestoreinventory.R
 import uz.pop.shoestoreinventory.ShoeViewModel
 import uz.pop.shoestoreinventory.databinding.FragmentListBinding
@@ -18,7 +17,7 @@ import uz.pop.shoestoreinventory.databinding.ShoeItemBinding
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private lateinit var viewModel: ShoeViewModel
+    private val viewModel by activityViewModels<ShoeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,21 +28,23 @@ class ListFragment : Fragment() {
             container, false
         )
 
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
         binding.lifecycleOwner = this
 
-        val shoeItems: ShoeItemBinding = DataBindingUtil.inflate(inflater, R.layout.shoe_item,
-        container, false)
-
         viewModel.shoesList.observe(viewLifecycleOwner, { newShoe ->
-           binding.shoeInventory.removeAllViews()
+
             newShoe.forEach { shoe ->
+                val shoeItems: ShoeItemBinding = DataBindingUtil.inflate(
+                    inflater, R.layout.shoe_item,
+                    container, false
+                )
                 shoeItems.tvName.text = shoe.name
                 shoeItems.tvCompany.text = shoe.company
                 shoeItems.tvSize.text = shoe.size
                 shoeItems.tvDescription.text = shoe.description
+
                 shoeItems.executePendingBindings()
-               binding.shoeInventory.addView(shoeItems.root)
+
+                binding.shoeInventory.addView(shoeItems.root)
             }
 
         })

@@ -6,32 +6,32 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/list_fragment"
         android:name="uz.pop.shoestoreinventory.fragments.ListFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Inventory"
         tools:layout="@layout/fragment_list">
 
         <action
             android:id="@+id/action_to_details_fragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/details_fragment" />
         <action
             android:id="@+id/action_listFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/details_fragment"
         android:name="uz.pop.shoestoreinventory.fragments.DetailFragment"
-        android:label="@string/second_fragment_label"
+        android:label="Details"
         tools:layout="@layout/fragment_details">
 
         <action
             android:id="@+id/action_detailsFragment_to_listFragment"
-            app:destination="@id/FirstFragment" />
+            app:destination="@id/list_fragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="uz.pop.shoestoreinventory.fragments.LoginFragment"
-        android:label="LoginFragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_to_welcome"
@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="uz.pop.shoestoreinventory.fragments.WelcomeFragment"
-        android:label="WelcomeFragment"
+        android:label="Welcome"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_to_insructions"
@@ -51,11 +51,11 @@
     <fragment
         android:id="@+id/fragmentInstructions"
         android:name="uz.pop.shoestoreinventory.fragments.FragmentInstructions"
-        android:label="FragmentInstructions"
+        android:label="Instructions"
         tools:layout="@layout/fragment_instructions">
         <action
             android:id="@+id/action_to_list_fragment"
-            app:destination="@id/FirstFragment"
+            app:destination="@id/list_fragment"
             app:popUpTo="@id/fragmentInstructions"
             app:popUpToInclusive="true" />
     </fragment>

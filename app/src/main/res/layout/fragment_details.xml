@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-         <variable
-             name="shoe"
-             type="uz.pop.shoestoreinventory.model.Shoe" />
+
+        <variable
+            name="shoe"
+            type="uz.pop.shoestoreinventory.model.Shoe" />
     </data>
 
     <ScrollView
@@ -18,18 +19,18 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="@dimen/margin_top_16dp">
 
 
             <TextView
                 android:id="@+id/text_details"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="64dp"
-                android:text="Details of shoe:"
-                android:textSize="30sp"
+                android:layout_marginStart="@dimen/margin_64dp"
+                android:layout_marginTop="@dimen/margin_start_32dp"
+                android:layout_marginEnd="@dimen/margin_64dp"
+                android:text="@string/details_of_shoe"
+               style="@style/text_headers"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -38,13 +39,14 @@
                 android:id="@+id/shoe_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Shoe name"
-                android:text="@={shoe.name}"
+                android:layout_marginStart="@dimen/margin_top_16dp"
+                android:layout_marginTop="@dimen/margin_64dp"
+                android:layout_marginEnd="@dimen/margin_top_16dp"
+                android:autofillHints="Shoe name"
+                android:hint="@string/shoe_name"
                 android:inputType="textPersonName"
+                android:singleLine="true"
+                android:text="@={shoe.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_details" />
@@ -53,13 +55,12 @@
                 android:id="@+id/company_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Company name"
-                android:text="@={shoe.company}"
+                android:layout_marginStart="@dimen/margin_top_16dp"
+                android:layout_marginTop="@dimen/margin_64dp"
+                android:layout_marginEnd="@dimen/margin_top_16dp"
+                android:hint="@string/company_name"
                 android:inputType="textPersonName"
+                android:text="@={shoe.company}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shoe_name" />
@@ -68,11 +69,12 @@
                 android:id="@+id/shoe_size"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Shoe size"
+                android:layout_marginStart="@dimen/margin_top_16dp"
+                android:layout_marginTop="@dimen/margin_64dp"
+                android:layout_marginEnd="@dimen/margin_top_16dp"
+                android:hint="@string/shoe_size"
+                android:inputType="number"
+                android:singleLine="true"
                 android:text="@={shoe.size}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,13 +84,12 @@
                 android:id="@+id/description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="16dp"
-                android:ems="10"
-                android:hint="Description"
-                android:text="@={shoe.description}"
+                android:layout_marginStart="@dimen/margin_top_16dp"
+                android:layout_marginTop="@dimen/margin_64dp"
+                android:layout_marginEnd="@dimen/margin_top_16dp"
+                android:hint="@string/description"
                 android:inputType="textPersonName"
+                android:text="@={shoe.description}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,10 +100,11 @@
                 android:id="@+id/button_save"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:text="Save"
+                android:layout_marginStart="@dimen/margin_start_32dp"
+                android:layout_marginTop="@dimen/margin_top_16dp"
+                android:layout_marginEnd="@dimen/margin_start_32dp"
+                android:text="@string/save"
+                style="@style/text_buttons"
                 app:layout_constraintBottom_toTopOf="@+id/button_cansel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -112,17 +114,72 @@
                 android:id="@+id/button_cansel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="16dp"
-                android:text="Cansel"
+                android:layout_marginStart="@dimen/margin_start_32dp"
+                android:layout_marginTop="@dimen/margin_top_16dp"
+                android:layout_marginEnd="@dimen/margin_start_32dp"
+                android:layout_marginBottom="@dimen/margin_top_16dp"
+                android:text="@string/cansel"
+                style="@style/text_buttons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.218"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button_save"
                 app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/shoe_name"
+                app:layout_constraintBottom_toTopOf="@+id/shoe_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/margin_top_16dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/company_name"
+                app:layout_constraintBottom_toTopOf="@+id/company_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bottom_8dp"
+                android:text="@string/shoe_size"
+                app:layout_constraintBottom_toTopOf="@+id/shoe_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bottom_8dp"
+                android:text="@string/description"
+                app:layout_constraintBottom_toTopOf="@+id/description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -1,13 +1,12 @@
 package uz.pop.shoestoreinventory.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import uz.pop.shoestoreinventory.R
@@ -21,26 +20,32 @@ import uz.pop.shoestoreinventory.model.Shoe
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailsBinding
-    private lateinit var viewModel: ShoeViewModel
+    private val viewModel by activityViewModels<ShoeViewModel>()
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-      binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
 
         binding.shoe = Shoe()
 
-        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-       val shoes = binding.shoe!!
+        val shoes = binding.shoe!!
 
         binding.buttonSave.setOnClickListener {
             if (shoes.name.isEmpty() || shoes.company.isEmpty() ||
-                    shoes.size.isEmpty() || shoes.description.isEmpty()){
-                view?.let { it1 -> Snackbar.make(it1, "Please, enter all fields!", Snackbar.LENGTH_SHORT).show() }
-            }else{
+                shoes.size.isEmpty() || shoes.description.isEmpty()
+            ) {
+                view?.let { it1 ->
+                    Snackbar.make(
+                        it1,
+                        getString(R.string.text_of_snack_bar),
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+            } else {
                 viewModel.saveData(shoes)
-                findNavController().navigate(R.id.action_detailsFragment_to_listFragment)
+                findNavController().navigateUp()
             }
         }
 
@@ -50,7 +55,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       binding.buttonCansel.setOnClickListener  {
+        binding.buttonCansel.setOnClickListener {
             findNavController().navigate(R.id.action_detailsFragment_to_listFragment)
         }
     }

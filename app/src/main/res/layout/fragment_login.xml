@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -21,10 +17,11 @@
             android:id="@+id/username"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/margin_login_24"
             android:layout_marginTop="96dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_email"
+            android:layout_marginEnd="@dimen/margin_login_24"
+            android:hint="@string/email"
+            style="@style/text_item"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,11 +32,12 @@
             android:id="@+id/password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/prompt_password"
-            android:imeActionLabel="@string/action_sign_in_short"
+            android:layout_marginStart="@dimen/margin_login_24"
+            android:layout_marginTop="@dimen/margin_64dp"
+            android:layout_marginEnd="@dimen/margin_login_24"
+            android:hint="@string/password"
+            style="@style/text_item"
+            android:imeActionLabel="@string/action_sign_in"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:selectAllOnFocus="true"
@@ -49,13 +47,14 @@
 
         <Button
             android:id="@+id/login"
-            android:layout_width="wrap_content"
+            style="@style/text_buttons"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginStart="@dimen/margin_start_32dp"
+            android:layout_marginTop="@dimen/margin_top_16dp"
+            android:layout_marginEnd="@dimen/margin_start_32dp"
+            android:layout_marginBottom="@dimen/margin_64dp"
+            android:drawableEnd="@drawable/ic_login"
             android:enabled="true"
             android:text="@string/action_sign_in"
 
@@ -67,20 +66,48 @@
 
         <Button
             android:id="@+id/create_login"
-            android:layout_width="wrap_content"
+            style="@style/text_buttons"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginStart="@dimen/margin_start_32dp"
+            android:layout_marginTop="@dimen/margin_top_16dp"
+            android:layout_marginEnd="@dimen/margin_start_32dp"
             android:enabled="true"
-            android:text="Register"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintTop_toBottomOf="@+id/login" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="356dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/email"
+            style="@style/label_style"
+            app:layout_constraintBottom_toTopOf="@+id/username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/password"
+            style="@style/label_style"
+            app:layout_constraintBottom_toTopOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
